@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios"
 import './Weather.css';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import  dark  from '../them/dark';
 import light  from '../them/light';

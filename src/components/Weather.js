@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import axios from "axios"
 import './Weather.css';
 import { useSelector } from 'react-redux';
-import  dark  from '../them/dark';
-import light  from '../them/light';
+import  dark  from '../theme/dark';
+import light  from '../theme/light';
 const Weather = () => {
   const [data, setData] = useState(null);
   const [name, setName] = useState("");

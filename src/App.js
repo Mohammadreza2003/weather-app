@@ -1,17 +1,18 @@
-import React from 'react';
-import { Provider } from "react-redux"
-import { Route, Routes, Navigate, BrowserRouter } from 'react-router-dom';
-import Settings from "./components/Settings"
-import Weather from "./components/Weather"
+import React,{useState} from "react";
+// import { Provider } from "react-redux";
+import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom";
+import Settings from "./components/Settings";
+import Weather from "./components/Weather";
+import { Provider } from "react-redux";
 import store from './redux/store';
-
+export const themeContext = React.createContext();
 
 const App = () => {
-
+  const [theme, setTheme] = useState("");
 
   return (
     <>
-      <Provider store={store}>
+      <themeContext.Provider value={{ darkMode: theme, setdarkMode: setTheme }}>
         <BrowserRouter>
           <Routes>
             <Route path="/weather" element={<Weather />} />
@@ -19,10 +20,8 @@ const App = () => {
             <Route path="/*" element={<Navigate to="/weather" />} />
           </Routes>
         </BrowserRouter>
-      </Provider>
-
+      </themeContext.Provider>
     </>
-
   );
 };
 

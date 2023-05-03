@@ -1,0 +1,143 @@
+.body {
+  margin: 0px;
+  
+}
+.contean {
+  background: #ffffff;
+  margin: -8px;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 623px;
+  padding: 25px;
+}
+.contean-darkmode {
+  background: #25272f;
+  height: 97pvh;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+.back-to-home{
+  width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 3px solid #2F0F5D;
+    border-radius: 1px;
+}
+.borderDarkMode{
+  border-bottom: 3px solid #499cc6;
+  border-radius: 1px;
+}
+.Lik {
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 5%;
+}
+.Home {
+  font-size: large;
+  color: #0EA293;
+}
+.textDarkMode {
+  color: #f6f7f9;
+}
+.back {
+  color: #2F0F5D;
+  font-size: 24px;
+  margin-right: 4px;
+}
+.backDarkMode {
+  color: #499cc6;
+  font-size: 24px;
+  margin-right: 4px;
+}
+.h1 {
+  text-align: center;
+  margin-top: 10px;
+  margin-right: 529px;
+  margin-left: 529px;
+  color: #0EA293;
+}
+.h1-DarkMode {
+  text-align: center;
+  border-radius: 1px;
+  margin-top: -7px;
+  color: #f6f7f9;
+}
+
+.Theme {
+  margin-right: 10px;
+  color: #0EA293;
+}
+.textDarkModeTheme {
+  color: #f6f7f9;
+}  
+
+.changeTheme {
+  color: #0EA293;
+}
+
+.backgroundForm {
+  background: #300f5d00;
+  box-shadow: 0 2px 10px 0 #150033;
+  backdrop-filter: blur(6px);
+  color:  #0EA293;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 207px;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.backgroundFormDark {
+  background: #4b4f60;
+  box-shadow: 0 2px 10px 0 #a4acd463;
+  backdrop-filter: blur(6px);
+  color: #5fa495;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 207px;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.form {
+  border-radius: 7px;
+  width: 131px;
+}
+.but {
+  background: #2F0F5D;
+  border: none;
+  border-radius: 8px;
+  padding: 3px 6px;
+  margin-left: 10px;
+}
+.butDark {
+  background:#499cc6 ;
+  border: none;
+  border-radius: 8px;
+  padding: 3px 6px;
+  margin-left: 10px;
+  color: #f6f7f9;
+}
+.textDark {
+  color: #499cc6;
+}
+
+/* ul{
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 10px 0 rgb(31 38 135 / 37%);
+} */

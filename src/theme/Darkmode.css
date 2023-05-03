@@ -1,0 +1,59 @@
+.conteaner-darkmode{
+  background: #0a1f44;
+  height: 97pvh;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 10px solid #031929;
+}
+.textDarkMode {
+  color: #f6f7f9;
+}
+.tab{
+  border: none;
+  margin: 3px;
+  background-color: unset;
+}
+.thistab.buttonDarkMode{
+  background: #ff1e42;
+}
+.buttonDarkMode {
+  background-color: unset;
+  color:white;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  min-width: 64px;
+  box-sizing: border-box;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  border-radius: 4px;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  border: none;
+}
+.button-dark{
+  background: rgb(0, 78, 153);
+  color:white;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  min-width: 64px;
+  box-sizing: border-box;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  border-radius: 4px;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  border: none;
+}
+.iconDarkMode {
+  color: white;
+}
+
+::placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  color: white;
+}
+

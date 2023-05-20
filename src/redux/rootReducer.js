@@ -3,7 +3,7 @@ import themeReducer from "./theme/themeReducer";
 
 
 const rootReducer = combineReducers({
-    theme: themeReducer,
+    themeDark: themeReducer,
     
 })
 

@@ -1,10 +1,8 @@
-import React,{useState} from "react";
-// import { Provider } from "react-redux";
+import React, { useState } from "react";
 import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom";
 import Settings from "./components/Settings";
 import Weather from "./components/Weather";
-import { Provider } from "react-redux";
-import store from './redux/store';
+
 export const themeContext = React.createContext();
 
 const App = () => {

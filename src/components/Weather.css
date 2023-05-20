@@ -33,9 +33,7 @@ img {
   max-width: 100%;
   height: auto;
 }
-.city-icon {
-  color: #2f0f5d;
-}
+
 ul {
   list-style: none;
 }
@@ -45,6 +43,7 @@ ul {
   background: #ffffff;
   color: #2f0f5d;
   padding: 70px;
+  height: 100vh;
 }
 
 .main-container-dark {
@@ -205,25 +204,25 @@ ul {
   background: #4e7a70;
 }
 
-.data-section .city-icon {
+ .city-icon {
   margin-top: 10px;
   width: 100px;
   height: 100px;
-  color: #2f0f5d;
+  fill: #2f0f5d;
 }
 
-.data-section .city-icon-dark {
+ .city-icon-dark {
   margin-top: 10px;
   width: 100px;
   height: 100px;
-  color: #f6f7f9;
+  fill: #f6f7f9;
 }
 /* MQ
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (max-width: 1000px) {
-  body {
+  /* body {
     padding: 30px;
-  }
+  } */
 
   .data-section .citys {
     grid-template-columns: repeat(3, 1fr);
@@ -267,9 +266,9 @@ ul {
 }
 
 @media screen and (max-width: 500px) {
-  body {
+  /* body {
     padding: 15px;
-  }
+  } */
 
   .data-section .citys {
     grid-template-columns: repeat(1, 1fr);

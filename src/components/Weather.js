@@ -8,6 +8,7 @@ import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { themeContext } from "../App";
 import { ReactSVG } from "react-svg";
+import { icon } from "@fortawesome/fontawesome-svg-core";
 const Weather = () => {
   const [data, setData] = useState(null);
   const [name, setName] = useState("");
@@ -147,8 +148,8 @@ const Weather = () => {
                 </div>
                 <figure>
                   <ReactSVG
-                    style={{ color: "red", fill: "red" }}
-                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/01n.svg"
+                    className={"city-icon " + (theme.darkMode === "dark" ? " city-icon-dark" : " ")}
+                    src={`https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${data.weather[0]["icon"]}.svg`}
                   />
                   <p>{data.weather[0]["description"]}</p>
                 </figure>

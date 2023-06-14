@@ -1,9 +1,9 @@
 import {combineReducers} from "redux";
-import themeReducer from "./theme/themeReducer";
+import counterReducer from "./settings/settingReducers";
 
 
 const rootReducer = combineReducers({
-    themeDark: themeReducer,
+    counter: counterReducer,
     
 })
 

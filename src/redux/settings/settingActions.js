@@ -1,4 +1,10 @@
-export const changeTheme = theme => ({
+export const increase = () => {
+  return {
+    type: "INCREASE",
+  };
+};
+
+export const changeTheme = (theme) => ({
     type: 'CHANGE_THEME',
     payload: theme,
 });

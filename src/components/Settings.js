@@ -9,56 +9,53 @@ import { themeContext } from "../App";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { useSelector, useDispatch } from "react-redux";
+import { changeTheme } from "../redux/settings/settingActions";
+
 function Settings() {
+  const themee = useSelector((state) => state.counter.theme);
+  const counterDispatch = useDispatch();
   const theme = useContext(themeContext);
-  const [currentDarkMode, setCurrentDarkMode] = useState(theme.darkMode);
+  console.log(theme);
+  const [currentDarkMode, setCurrentDarkMode] = useState(
+    counterDispatch(changeTheme("dark"))
+  );
   const handleChange = (event) => {
     setCurrentDarkMode(event.target.value);
   };
+
   return (
     <Box
       sx={{ minWidth: 120 }}
-      className={
-        " contean" + (theme.darkMode === "dark" ? " contean-darkmode" : " ")
-      }
+      className={" contean" + (themee === "dark" ? " contean-darkmode" : " ")}
     >
       <div
         className={
-          "back-to-home " +
-          (theme.darkMode === "dark" ? "  borderDarkMode" : " ")
+          "back-to-home " + (themee === "dark" ? "  borderDarkMode" : " ")
         }
       >
         <Link className={"Lik"} to="/">
           <FontAwesomeIcon
             icon={faChevronLeft}
-            className={
-              "back " + (theme.darkMode === "dark" ? " backDarkMode" : " ")
-            }
+            className={"back " + (themee === "dark" ? " backDarkMode" : " ")}
           />
-          <p
-            className={
-              "Home " + (theme.darkMode === "dark" ? " textDarkMode" : " ")
-            }
-          >
+          <p className={"Home " + (themee === "dark" ? " textDarkMode" : " ")}>
             Home
           </p>
         </Link>
-        <h1
-          className={"h1 " + (theme.darkMode === "dark" ? " h1-DarkMode" : " ")}
-        >
+        <h1 className={"h1 " + (themee === "dark" ? " h1-DarkMode" : " ")}>
           Setting
         </h1>
       </div>
       <br />
       <div
         className={
-          "backgroundForm " +
-          (theme.darkMode === "dark" ? " backgroundFormDark" : " ")
+          "backgroundForm " + (themee === "dark" ? " backgroundFormDark" : " ")
         }
       >
         <p
           className={
-            "Theme " + (theme.darkMode === "dark" ? " textDarkModeTheme" : " ")
+            "Theme " + (themee === "dark" ? " textDarkModeTheme" : " ")
           }
         >
           Theme:
@@ -77,8 +74,7 @@ function Settings() {
             <MenuItem value={"light"}>
               <spam
                 className={
-                  "changeTheme " +
-                  (theme.darkMode === "dark" ? " textDark" : " ")
+                  "changeTheme " + (themee === "dark" ? " textDark" : " ")
                 }
               >
                 Light
@@ -88,8 +84,7 @@ function Settings() {
             <MenuItem value={"dark"}>
               <spam
                 className={
-                  "changeTheme " +
-                  (theme.darkMode === "dark" ? " textDark" : " ")
+                  "changeTheme " + (themee === "dark" ? " textDark" : " ")
                 }
               >
                 Dark
@@ -97,16 +92,16 @@ function Settings() {
             </MenuItem>
           </Select>
         </FormControl>
-        {currentDarkMode !== theme.darkMode && (
-          <button
-            className={"but " + (theme.darkMode === "dark" ? " butDark" : " ")}
-            onClick={() => {
-              theme.setdarkMode(currentDarkMode);
-            }}
-          >
-            Save
-          </button>
-        )}
+
+        <button
+          className={"but " + (themee === "dark" ? " butDark" : " ")}
+          onClick={() => {
+            // theme.setdarkMode(currentDarkMode);
+            counterDispatch(changeTheme("dark"));
+          }}
+        >
+          Save
+        </button>
       </div>
     </Box>
   );

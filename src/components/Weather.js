@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import { Fragment } from "react";
 import axios from "axios";
 import "./Weather.css";
 import "../theme/Darkmode.css";
@@ -8,7 +7,8 @@ import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { themeContext } from "../App";
 import { ReactSVG } from "react-svg";
-import { icon } from "@fortawesome/fontawesome-svg-core";
+import { useSelector, useDispatch } from "react-redux";
+import { increase} from "../redux/settings/settingActions";
 const Weather = () => {
   const [data, setData] = useState(null);
   const [name, setName] = useState("");
@@ -44,24 +44,32 @@ const Weather = () => {
       });
   };
 
+  const counter = useSelector((state) => state.counter.counter);
+  const counterDispatch = useDispatch();
+
+  const themee = useSelector ((state)=> state.counter.theme);
+
   return (
     <div
       className={
         "main-container " +
-        (theme.darkMode === "dark" ? " main-container-dark" : " ")
+        (themee === "dark" ? " main-container-dark" : " ")
       }
     >
+      <h1>Counters - {counter}</h1>
+      <button onClick={() => counterDispatch(increase())} style={{backgroundColor:"salmon",border:"5px solid salmon",fontSize:"30px",borderRadius:"5px"}}>Increase</button>
       <Link
         className={
           "icon-setting" +
-          (theme.darkMode === "dark" ? " icon-setting-dark" : " ")
+          // (theme.darkMode === "dark" ? " icon-setting-dark" : " ")
+          (themee === "dark" ? " icon-setting-dark" : " ")
         }
         to="/settings"
       >
         <p
           className={
             "text-setting" +
-            (theme.darkMode === "dark" ? " text-setting-dark" : " ")
+            (themee === "dark" ? " text-setting-dark" : " ")
           }
         >
           Setting
@@ -70,7 +78,7 @@ const Weather = () => {
       </Link>
       <section
         className={
-          "top-banner " + (theme.darkMode === "dark" ? " top-banner-dark" : " ")
+          "top-banner " + (themee === "dark" ? " top-banner-dark" : " ")
         }
       >
         <div className={"container"}>
@@ -82,7 +90,7 @@ const Weather = () => {
               onChange={changeHandler}
               className={
                 "top-banner-form-input " +
-                (theme.darkMode === "dark"
+                (themee === "dark"
                   ? " top-banner-dark-form-input"
                   : " ")
               }
@@ -91,7 +99,7 @@ const Weather = () => {
               onClick={clickHandler}
               className={
                 "top-banner-form-button " +
-                (theme.darkMode === "dark"
+                (themee === "dark"
                   ? " top-banner-dark-form-button"
                   : " ")
               }
@@ -101,7 +109,7 @@ const Weather = () => {
             {!!isLoading && (
               <h1
                 className={
-                  "load " + (theme.darkMode === "dark" ? " load-dark" : " ")
+                  "load " + (themee === "dark" ? " load-dark" : " ")
                 }
               >
                 Loading....
@@ -109,7 +117,7 @@ const Weather = () => {
             )}
             <span
               className={
-                "msg " + (theme.darkMode === "dark" ? " msg-dark" : " ")
+                "msg " + (themee === "dark" ? " msg-dark" : " ")
               }
             >
               {error === "404" && <p>City not found !!!</p>}
@@ -121,14 +129,14 @@ const Weather = () => {
         <section
           className={
             "data-section " +
-            (theme.darkMode === "dark" ? " data-section-dark" : " ")
+            (themee === "dark" ? " data-section-dark" : " ")
           }
         >
           <div className="container">
             <ul className="citys">
               <li
                 className={
-                  "city " + (theme.darkMode === "dark" ? " city-dark" : " ")
+                  "city " + (themee === "dark" ? " city-dark" : " ")
                 }
               >
                 <h1 className="city-name">
@@ -141,14 +149,17 @@ const Weather = () => {
                 <div
                   className={
                     "city-temp " +
-                    (theme.darkMode === "dark" ? " city-temp-dark" : " ")
+                    (themee === "dark" ? " city-temp-dark" : " ")
                   }
                 >
                   {data !== null && <h1>{Math.floor(data.main.temp)}</h1>}
                 </div>
                 <figure>
                   <ReactSVG
-                    className={"city-icon " + (theme.darkMode === "dark" ? " city-icon-dark" : " ")}
+                    className={
+                      "city-icon " +
+                      (themee === "dark" ? " city-icon-dark" : " ")
+                    }
                     src={`https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${data.weather[0]["icon"]}.svg`}
                   />
                   <p>{data.weather[0]["description"]}</p>

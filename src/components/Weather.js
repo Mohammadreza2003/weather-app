@@ -14,7 +14,6 @@ const Weather = () => {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoding] = useState(false);
-  const theme = useContext(themeContext);
   const changeHandler = (event) => {
     const value = event.target.value;
     setName(value);
@@ -44,32 +43,27 @@ const Weather = () => {
       });
   };
 
-  const counter = useSelector((state) => state.counter.counter);
-  const counterDispatch = useDispatch();
-
-  const themee = useSelector ((state)=> state.counter.theme);
+  const theme = useSelector((state) => state.changeTheme.theme);
 
   return (
     <div
       className={
         "main-container " +
-        (themee === "dark" ? " main-container-dark" : " ")
+        (theme === "dark" ? " main-container-dark" : " ")
       }
     >
-      <h1>Counters - {counter}</h1>
-      <button onClick={() => counterDispatch(increase())} style={{backgroundColor:"salmon",border:"5px solid salmon",fontSize:"30px",borderRadius:"5px"}}>Increase</button>
       <Link
         className={
           "icon-setting" +
           // (theme.darkMode === "dark" ? " icon-setting-dark" : " ")
-          (themee === "dark" ? " icon-setting-dark" : " ")
+          (theme === "dark" ? " icon-setting-dark" : " ")
         }
         to="/settings"
       >
         <p
           className={
             "text-setting" +
-            (themee === "dark" ? " text-setting-dark" : " ")
+            (theme === "dark" ? " text-setting-dark" : " ")
           }
         >
           Setting
@@ -78,7 +72,7 @@ const Weather = () => {
       </Link>
       <section
         className={
-          "top-banner " + (themee === "dark" ? " top-banner-dark" : " ")
+          "top-banner " + (theme === "dark" ? " top-banner-dark" : " ")
         }
       >
         <div className={"container"}>
@@ -90,7 +84,7 @@ const Weather = () => {
               onChange={changeHandler}
               className={
                 "top-banner-form-input " +
-                (themee === "dark"
+                (theme === "dark"
                   ? " top-banner-dark-form-input"
                   : " ")
               }
@@ -99,7 +93,7 @@ const Weather = () => {
               onClick={clickHandler}
               className={
                 "top-banner-form-button " +
-                (themee === "dark"
+                (theme === "dark"
                   ? " top-banner-dark-form-button"
                   : " ")
               }
@@ -109,7 +103,7 @@ const Weather = () => {
             {!!isLoading && (
               <h1
                 className={
-                  "load " + (themee === "dark" ? " load-dark" : " ")
+                  "load " + (theme === "dark" ? " load-dark" : " ")
                 }
               >
                 Loading....
@@ -117,7 +111,7 @@ const Weather = () => {
             )}
             <span
               className={
-                "msg " + (themee === "dark" ? " msg-dark" : " ")
+                "msg " + (theme === "dark" ? " msg-dark" : " ")
               }
             >
               {error === "404" && <p>City not found !!!</p>}
@@ -129,14 +123,14 @@ const Weather = () => {
         <section
           className={
             "data-section " +
-            (themee === "dark" ? " data-section-dark" : " ")
+            (theme === "dark" ? " data-section-dark" : " ")
           }
         >
           <div className="container">
             <ul className="citys">
               <li
                 className={
-                  "city " + (themee === "dark" ? " city-dark" : " ")
+                  "city " + (theme === "dark" ? " city-dark" : " ")
                 }
               >
                 <h1 className="city-name">
@@ -149,7 +143,7 @@ const Weather = () => {
                 <div
                   className={
                     "city-temp " +
-                    (themee === "dark" ? " city-temp-dark" : " ")
+                    (theme === "dark" ? " city-temp-dark" : " ")
                   }
                 >
                   {data !== null && <h1>{Math.floor(data.main.temp)}</h1>}
@@ -158,7 +152,7 @@ const Weather = () => {
                   <ReactSVG
                     className={
                       "city-icon " +
-                      (themee === "dark" ? " city-icon-dark" : " ")
+                      (theme === "dark" ? " city-icon-dark" : " ")
                     }
                     src={`https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${data.weather[0]["icon"]}.svg`}
                   />
